@@ -2,9 +2,9 @@
 /**
  * The template part for displaying the drawer navigation
  *
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ * Learn more: http://codex.mtaandao.org/Template_Hierarchy
  *
- * @package MDLWP
+ * @package Ese
  */
 
 	$args = array(
@@ -15,6 +15,6 @@
 	);
 
 	if (has_nav_menu('footer')) {
-	    wp_nav_menu($args);
+	    mn_nav_menu($args);
 	}
 ?>

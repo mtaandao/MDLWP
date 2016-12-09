@@ -1,18 +1,18 @@
 {
-  "name": "mdlwp",
+  "name": "ese",
   "version": "1.0.0",
   "authors": [
-    "Brad Williams"
+    "Mtaandao"
   ],
-  "description": "Material Design Lite WordPress Theme",
+  "description": "Material Design Lite Mtaandao Theme",
   "keywords": [
     "material",
     "design",
-    "wordpress",
+    "mtaandao",
     "theme"
   ],
   "license": "MIT",
-  "homepage": "http://braginteractive.com",
+  "homepage": "http://mtaandao.co.ke",
   "ignore": [
     "**/.*",
     "node_modules",

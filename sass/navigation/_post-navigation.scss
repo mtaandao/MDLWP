@@ -1,4 +1,4 @@
-.mdlwp-nav {
+.ese-nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -6,7 +6,7 @@
   color: $color__dark-grey;
   font-weight: 500;
 
-    > .mdlwp-nav__button {
+    > .ese-nav__button {
     color: $color__dark-grey;
     text-decoration: none;
   }
@@ -16,11 +16,11 @@
     background-color: white;
   }
 
-  > .mdlwp-nav__button:first-child .mdl-button {
+  > .ese-nav__button:first-child .mdl-button {
     margin-right: 16px;
   }
 
-  > .mdlwp-nav__button:last-child .mdl-button {
+  > .ese-nav__button:last-child .mdl-button {
     margin-left: 16px;
   }
 

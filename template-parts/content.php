@@ -2,29 +2,29 @@
 /**
  * Template part for displaying posts.
  *
- * @package MDLWP
+ * @package Ese
  */
 
 ?>
 
 <?php
     // Gets the stored background color value 
-    $color_value = get_post_meta( get_the_ID(), 'mdlwp-bg-color', true ); 
+    $color_value = get_post_meta( get_the_ID(), 'ese-bg-color', true ); 
     // Checks and returns the color value
   	$color = (!empty( $color_value ) ? 'background-color:' . $color_value . ';' : '');
 
   	// Gets the stored title color value 
-    $title_color_value = get_post_meta( get_the_ID(), 'mdlwp-title-color', true ); 
+    $title_color_value = get_post_meta( get_the_ID(), 'ese-title-color', true ); 
     // Checks and returns the color value
   	$title_color = (!empty( $title_color_value ) ? 'color:' . $title_color_value . ';' : '');
 
   	// Gets the stored height value 
-    $height_value = get_post_meta( get_the_ID(), 'mdlwp-height', true ); 
+    $height_value = get_post_meta( get_the_ID(), 'ese-height', true ); 
     // Checks and returns the height value
   	$height = (!empty( $height_value ) ? 'height:' . $height_value . ';' : '');
 
   	 // Gets the uploaded featured image
-  	$featured_img = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+  	$featured_img = mn_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
   	// Checks and returns the featured image
   	$bg = (!empty( $featured_img ) ? "background-image: url('". $featured_img[0] ."');" : '');
 ?>
@@ -42,14 +42,14 @@
 			<?php
 				the_content( sprintf(
 					/* translators: %s: Name of current post. */
-					wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'mdlwp' ), array( 'span' => array( 'class' => array() ) ) ),
+					mn_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'ese' ), array( 'span' => array( 'class' => array() ) ) ),
 					the_title( '<span class="screen-reader-text">"', '"</span>', false )
 				) );
 			?>
 
 			<?php
-				wp_link_pages( array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'mdlwp' ),
+				mn_link_pages( array(
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'ese' ),
 					'after'  => '</div>',
 				) );
 			?>
@@ -63,7 +63,7 @@
 	        
 	        <?php if ( 'post' == get_post_type() ) : ?>
 			<div class="entry-meta">
-				<?php mdlwp_posted_on(); ?>
+				<?php ese_posted_on(); ?>
 			</div><!-- .entry-meta -->
 			<?php endif; ?>
 	              

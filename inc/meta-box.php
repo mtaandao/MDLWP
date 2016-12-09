@@ -2,11 +2,11 @@
 /**
  * Adds a meta box to the post editing screen
  */
-function mdlwp_custom_meta() {
+function ese_custom_meta() {
 
 	global $post;
 
-	$pageTemplate = get_post_meta($post->ID, '_wp_page_template', true);
+	$pageTemplate = get_post_meta($post->ID, '_mn_page_template', true);
 
 	 $exclude_pages = array(
         'templates/page-ribbon.php',
@@ -16,16 +16,16 @@ function mdlwp_custom_meta() {
 	/**
 	 * Create meta box for all posts and pages except $exclude_pages
 	 */
-	if (! in_array($pageTemplate, apply_filters( 'mdlwp_exclude_metabox_post_types' , $exclude_pages ))) {
+	if (! in_array($pageTemplate, apply_filters( 'ese_exclude_metabox_post_types' , $exclude_pages ))) {
 		
 		$screens = array( 'post', 'page' );
 
-		if(has_filter('mdlwp_include_metabox_post_types')) {
-			$screens = apply_filters('mdlwp_include_metabox_post_types', $screens);
+		if(has_filter('ese_include_metabox_post_types')) {
+			$screens = apply_filters('ese_include_metabox_post_types', $screens);
 		}
 
 		foreach ( $screens as $screen ) {
-			add_meta_box( 'mdlwp_meta', __( 'Customize', 'mdlwp' ), 'mdlwp_meta_callback', $screen );
+			add_meta_box( 'ese_meta', __( 'Customize', 'ese' ), 'ese_meta_callback', $screen );
 		}
 	}
 
@@ -34,17 +34,17 @@ function mdlwp_custom_meta() {
 	 */
 	if ($pageTemplate == 'templates/page-ribbon.php' ) {
 
-		add_meta_box( 'mdlwp_meta', __( 'Customize', 'mdlwp' ), 'mdlwp_ribbon_callback', 'page' );
+		add_meta_box( 'ese_meta', __( 'Customize', 'ese' ), 'ese_ribbon_callback', 'page' );
 	}
 }
-add_action( 'add_meta_boxes', 'mdlwp_custom_meta' );
+add_action( 'add_meta_boxes', 'ese_custom_meta' );
 
 /**
  * Posts & Pages - Outputs the content of the meta box
  */
-function mdlwp_meta_callback( $post ) {
-	wp_nonce_field( basename( __FILE__ ), 'mdlwp_nonce' );
-	$mdlwp_stored_meta = get_post_meta( $post->ID );
+function ese_meta_callback( $post ) {
+	mn_nonce_field( basename( __FILE__ ), 'ese_nonce' );
+	$ese_stored_meta = get_post_meta( $post->ID );
 	?>
 
 	<table class="form-table">
@@ -52,10 +52,10 @@ function mdlwp_meta_callback( $post ) {
 
 			<tr>
 			    <th scope="row">
-			        <label for="mdlwp-bg-color" class="mdlwp-row-title"><?php _e( 'Background Color', 'mdlwp' )?></label>
+			        <label for="ese-bg-color" class="ese-row-title"><?php _e( 'Background Color', 'ese' )?></label>
 			    </th>
 			    <td>
-			        <input name="mdlwp-bg-color" type="text" value="<?php if ( isset ( $mdlwp_stored_meta['mdlwp-bg-color'] ) ) echo $mdlwp_stored_meta['mdlwp-bg-color'][0]; ?>" class="meta-color" /> 
+			        <input name="ese-bg-color" type="text" value="<?php if ( isset ( $ese_stored_meta['ese-bg-color'] ) ) echo $ese_stored_meta['ese-bg-color'][0]; ?>" class="meta-color" /> 
 			        <br>
         			<span class="description">This is the color that will be displayed if a featured image is NOT uploaded.</span>  
 			    </td>
@@ -63,10 +63,10 @@ function mdlwp_meta_callback( $post ) {
 			
 			<tr>
 			    <th scope="row">
-			        <label for="mdlwp-title-color" class="mdlwp-row-title"><?php _e( 'Title Color', 'mdlwp' )?></label>
+			        <label for="ese-title-color" class="ese-row-title"><?php _e( 'Title Color', 'ese' )?></label>
 			    </th>
 			    <td>
-			        <input name="mdlwp-title-color" type="text" value="<?php if ( isset ( $mdlwp_stored_meta['mdlwp-title-color'] ) ) echo $mdlwp_stored_meta['mdlwp-title-color'][0]; ?>" class="meta-color" /> 
+			        <input name="ese-title-color" type="text" value="<?php if ( isset ( $ese_stored_meta['ese-title-color'] ) ) echo $ese_stored_meta['ese-title-color'][0]; ?>" class="meta-color" /> 
 			        <br>
         			<span class="description">This is the color of the title.</span>  
 			    </td>
@@ -74,10 +74,10 @@ function mdlwp_meta_callback( $post ) {
 
 			<tr>
 			    <th scope="row">
-			        <label for="mdlwp-height" class="mdlwp-row-title"><?php _e( 'Height', 'mdlwp' )?></label>
+			        <label for="ese-height" class="ese-row-title"><?php _e( 'Height', 'ese' )?></label>
 			    </th>
 			    <td>
-			        <input type="text" name="mdlwp-height" id="mdlwp-height" class="medium-text" value="<?php if ( isset ( $mdlwp_stored_meta['mdlwp-height'] ) ) echo $mdlwp_stored_meta['mdlwp-height'][0]; ?>" />
+			        <input type="text" name="ese-height" id="ese-height" class="medium-text" value="<?php if ( isset ( $ese_stored_meta['ese-height'] ) ) echo $ese_stored_meta['ese-height'][0]; ?>" />
 			        <br>
 	        		<span class="description">This will be the height of the featured image section. (Default = 280px)</span>   
 			    </td>
@@ -92,9 +92,9 @@ function mdlwp_meta_callback( $post ) {
 /**
  * Ribbon Page Template - Outputs the content of the meta box
  */
-function mdlwp_ribbon_callback( $post ) {
-	wp_nonce_field( basename( __FILE__ ), 'mdlwp_nonce' );
-	$mdlwp_stored_meta = get_post_meta( $post->ID );
+function ese_ribbon_callback( $post ) {
+	mn_nonce_field( basename( __FILE__ ), 'ese_nonce' );
+	$ese_stored_meta = get_post_meta( $post->ID );
 	?>
 
 	<table class="form-table">
@@ -102,10 +102,10 @@ function mdlwp_ribbon_callback( $post ) {
 
 			<tr>
 			    <th scope="row">
-			        <label for="mdlwp-ribbon-bg-color" class="mdlwp-row-title"><?php _e( 'Background Color', 'mdlwp' )?></label>
+			        <label for="ese-ribbon-bg-color" class="ese-row-title"><?php _e( 'Background Color', 'ese' )?></label>
 			    </th>
 			    <td>
-			        <input name="mdlwp-ribbon-bg-color" type="text" value="<?php if ( isset ( $mdlwp_stored_meta['mdlwp-ribbon-bg-color'] ) ) echo $mdlwp_stored_meta['mdlwp-ribbon-bg-color'][0]; ?>" class="meta-color" /> 
+			        <input name="ese-ribbon-bg-color" type="text" value="<?php if ( isset ( $ese_stored_meta['ese-ribbon-bg-color'] ) ) echo $ese_stored_meta['ese-ribbon-bg-color'][0]; ?>" class="meta-color" /> 
 			        <br>
         			<span class="description">This is the color that will be displayed if a featured image is NOT uploaded.</span>  
 			    </td>
@@ -113,10 +113,10 @@ function mdlwp_ribbon_callback( $post ) {
 
 			<tr>
 			    <th scope="row">
-			        <label for="mdlwp-ribbon-height" class="mdlwp-row-title"><?php _e( 'Height', 'mdlwp' )?></label>
+			        <label for="ese-ribbon-height" class="ese-row-title"><?php _e( 'Height', 'ese' )?></label>
 			    </th>
 			    <td>
-			        <input type="text" name="mdlwp-ribbon-height" id="mdlwp-ribbon-height" class="medium-text" value="<?php if ( isset ( $mdlwp_stored_meta['mdlwp-ribbon-height'] ) ) echo $mdlwp_stored_meta['mdlwp-ribbon-height'][0]; ?>" />
+			        <input type="text" name="ese-ribbon-height" id="ese-ribbon-height" class="medium-text" value="<?php if ( isset ( $ese_stored_meta['ese-ribbon-height'] ) ) echo $ese_stored_meta['ese-ribbon-height'][0]; ?>" />
 			        <br>
 	        		<span class="description">This will be the height of the featured image ribbon section. (Default = 40vh)</span>   
 			    </td>
@@ -133,12 +133,12 @@ function mdlwp_ribbon_callback( $post ) {
 /**
  * Saves the custom meta input
  */
-function mdlwp_meta_save( $post_id ) {
+function ese_meta_save( $post_id ) {
  
 	// Checks save status
-	$is_autosave = wp_is_post_autosave( $post_id );
-	$is_revision = wp_is_post_revision( $post_id );
-	$is_valid_nonce = ( isset( $_POST[ 'mdlwp_nonce' ] ) && wp_verify_nonce( $_POST[ 'mdlwp_nonce' ], basename( __FILE__ ) ) ) ? 'true' : 'false';
+	$is_autosave = mn_is_post_autosave( $post_id );
+	$is_revision = mn_is_post_revision( $post_id );
+	$is_valid_nonce = ( isset( $_POST[ 'ese_nonce' ] ) && mn_verify_nonce( $_POST[ 'ese_nonce' ], basename( __FILE__ ) ) ) ? 'true' : 'false';
  
 	// Exits script depending on save status
 	if ( $is_autosave || $is_revision || !$is_valid_nonce ) {
@@ -146,57 +146,57 @@ function mdlwp_meta_save( $post_id ) {
 	}
  
 	// Checks for input and sanitizes/saves if needed
-	if( isset( $_POST[ 'mdlwp-height' ] ) ) {
-		update_post_meta( $post_id, 'mdlwp-height', sanitize_text_field( $_POST[ 'mdlwp-height' ] ) );
+	if( isset( $_POST[ 'ese-height' ] ) ) {
+		update_post_meta( $post_id, 'ese-height', sanitize_text_field( $_POST[ 'ese-height' ] ) );
 	}
 
 	// Checks for input and saves if needed
-	if( isset( $_POST[ 'mdlwp-bg-color' ] ) ) {
-		update_post_meta( $post_id, 'mdlwp-bg-color', $_POST[ 'mdlwp-bg-color' ] );
+	if( isset( $_POST[ 'ese-bg-color' ] ) ) {
+		update_post_meta( $post_id, 'ese-bg-color', $_POST[ 'ese-bg-color' ] );
 	}
 
 	// Checks for input and saves if needed
-	if( isset( $_POST[ 'mdlwp-title-color' ] ) ) {
-		update_post_meta( $post_id, 'mdlwp-title-color', $_POST[ 'mdlwp-title-color' ] );
+	if( isset( $_POST[ 'ese-title-color' ] ) ) {
+		update_post_meta( $post_id, 'ese-title-color', $_POST[ 'ese-title-color' ] );
 	}
 
 	// Checks for input and sanitizes/saves if needed
-	if( isset( $_POST[ 'mdlwp-ribbon-height' ] ) ) {
-		update_post_meta( $post_id, 'mdlwp-ribbon-height', sanitize_text_field( $_POST[ 'mdlwp-ribbon-height' ] ) );
+	if( isset( $_POST[ 'ese-ribbon-height' ] ) ) {
+		update_post_meta( $post_id, 'ese-ribbon-height', sanitize_text_field( $_POST[ 'ese-ribbon-height' ] ) );
 	}
 
 	// Checks for input and saves if needed
-	if( isset( $_POST[ 'mdlwp-ribbon-bg-color' ] ) ) {
-		update_post_meta( $post_id, 'mdlwp-ribbon-bg-color', $_POST[ 'mdlwp-ribbon-bg-color' ] );
+	if( isset( $_POST[ 'ese-ribbon-bg-color' ] ) ) {
+		update_post_meta( $post_id, 'ese-ribbon-bg-color', $_POST[ 'ese-ribbon-bg-color' ] );
 	}
 
 }
-add_action( 'save_post', 'mdlwp_meta_save' );
+add_action( 'save_post', 'ese_meta_save' );
 
 
 /**
  * Loads the color picker javascript
  */
-function mdlwp_color_enqueue() {
-	wp_enqueue_style( 'wp-color-picker' );
-	wp_enqueue_script( 'meta-box-color-js', get_template_directory_uri() . '/js/color-picker.js', array( 'wp-color-picker' ) );
+function ese_color_enqueue() {
+	mn_enqueue_style( 'mn-color-picker' );
+	mn_enqueue_script( 'meta-box-color-js', get_template_directory_uri() . '/js/color-picker.js', array( 'mn-color-picker' ) );
 }
-add_action( 'admin_enqueue_scripts', 'mdlwp_color_enqueue' );
+add_action( 'admin_enqueue_scripts', 'ese_color_enqueue' );
 
 /**
  * Loads the image management javascript
  */
-function mdlwp_image_enqueue() {	
-		wp_enqueue_media();
+function ese_image_enqueue() {	
+		mn_enqueue_media();
  
 		// Registers and enqueues the required javascript.
-		wp_register_script( 'meta-box-image', get_template_directory_uri() . '/js/meta-image-uploader.js', array( 'jquery' ) );
-		wp_localize_script( 'meta-box-image', 'meta_image',
+		mn_register_script( 'meta-box-image', get_template_directory_uri() . '/js/meta-image-uploader.js', array( 'jquery' ) );
+		mn_localize_script( 'meta-box-image', 'meta_image',
 			array(
-				'title' => __( 'Choose or Upload an Image', 'mdlwp' ),
-				'button' => __( 'Use this image', 'mdlwp' ),
+				'title' => __( 'Choose or Upload an Image', 'ese' ),
+				'button' => __( 'Use this image', 'ese' ),
 			)
 		);
-		wp_enqueue_script( 'meta-box-image' );	
+		mn_enqueue_script( 'meta-box-image' );	
 }
-add_action( 'admin_enqueue_scripts', 'mdlwp_image_enqueue' );
+add_action( 'admin_enqueue_scripts', 'ese_image_enqueue' );

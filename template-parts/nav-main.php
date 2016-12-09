@@ -2,9 +2,9 @@
 /**
  * The template part for displaying the main navigation
  *
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ * Learn more: http://codex.mtaandao.org/Template_Hierarchy
  *
- * @package MDLWP
+ * @package Ese
  */
 
 ?>
@@ -15,7 +15,7 @@
   <!-- Add spacer, to align navigation to the right -->
   <div class="mdl-layout-spacer"></div>
 
-	<div class="mdlwp-search-box mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">   
+	<div class="ese-search-box mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">   
       <?php get_search_form(); ?>
     </div>
 
@@ -26,11 +26,11 @@
 	        'container'       => 'nav',
 	        'items_wrap' => '%3$s',
 	        'container_class' => 'mdl-navigation mdl-layout--large-screen-only',
-			'walker' => new MDLWP_Nav_Walker()
+			'walker' => new Ese_Nav_Walker()
 		);
 
 		if (has_nav_menu('primary')) {
-		       wp_nav_menu($args);
+		       mn_nav_menu($args);
 		    }
 	?>
     

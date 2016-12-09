@@ -2,9 +2,9 @@
 /**
  * The template part for displaying the drawer navigation
  *
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ * Learn more: http://codex.mtaandao.org/Template_Hierarchy
  *
- * @package MDLWP
+ * @package Ese
  */
 
 ?>
@@ -17,11 +17,11 @@
 	        'container'       => 'nav',
 	        'items_wrap' => '%3$s',
 	        'container_class' => 'mdl-navigation',
-			'walker' => new MDLWP_Nav_Walker()
+			'walker' => new Ese_Nav_Walker()
 		);
 
 		if (has_nav_menu('drawer')) {
-		       wp_nav_menu($args);
+		       mn_nav_menu($args);
 		    }
 	?>
 </div>

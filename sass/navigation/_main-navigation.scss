@@ -1,11 +1,11 @@
-.mdlwp-navigation-container {
+.ese-navigation-container {
     direction: rtl;
     order: 1;
     width: 500px;
     transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.mdlwp-search-box {
+.ese-search-box {
   order: 2;
   margin-left: 16px;
   margin-right: 16px;
@@ -14,7 +14,7 @@
     border-bottom: 1px solid #fff;
   }
 
-  &.is-focused ~ .mdlwp-navigation-container {
+  &.is-focused ~ .ese-navigation-container {
     opacity: 0;
     width: 100px;
   }

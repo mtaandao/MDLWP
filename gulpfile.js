@@ -38,7 +38,7 @@ gulp.task('zip', function () {
    '!bower_components',
    '!node_modules',
   ], {base: "."})
-  .pipe(zip('mdlwp.zip'))
+  .pipe(zip('ese.zip'))
   .pipe(gulp.dest('.'));
 });
 

@@ -1,3 +1,3 @@
 jQuery(document).ready(function($){
-	$('.meta-color').wpColorPicker();
+	$('.meta-color').mnColorPicker();
 });

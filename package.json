@@ -1,9 +1,9 @@
 {
-  "name": "mdlwp",
+  "name": "ese",
   "version": "1.0.0",
-  "description": "Material Design Lite WordPress Theme",
+  "description": "Material Design Lite Mtaandao Theme",
   "main": "gulpfile.js",
-  "author": "Brad Williams",
+  "author": "Mtaandao",
   "devDependencies": {
     "gulp": "^3.8.11",
     "gulp-autoprefixer": "^2.2.0",

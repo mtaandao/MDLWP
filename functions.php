@@ -1,34 +1,34 @@
 <?php
 /**
- * MDLWP functions and definitions
+ * Ese functions and definitions
  *
- * @package MDLWP
+ * @package Ese
  */
 
-if ( ! function_exists( 'mdlwp_setup' ) ) :
+if ( ! function_exists( 'ese_setup' ) ) :
 /**
- * Sets up theme defaults and registers support for various WordPress features.
+ * Sets up theme defaults and registers support for various Mtaandao features.
  *
  * Note that this function is hooked into the after_setup_theme hook, which
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function mdlwp_setup() {
+function ese_setup() {
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on MDLWP, use a find and replace
-	 * to change 'mdlwp' to the name of your theme in all the template files
+	 * If you're building a theme based on Ese, use a find and replace
+	 * to change 'ese' to the name of your theme in all the template files
 	 */
-	load_theme_textdomain( 'mdlwp', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'ese', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 
 	/*
-	 * Let WordPress manage the document title.
+	 * Let Mtaandao manage the document title.
 	 * By adding theme support, we declare that this theme does not use a
-	 * hard-coded <title> tag in the document head, and expect WordPress to
+	 * hard-coded <title> tag in the document head, and expect Mtaandao to
 	 * provide it for us.
 	 */
 	add_theme_support( 'title-tag' );
@@ -36,15 +36,15 @@ function mdlwp_setup() {
 	/*
 	 * Enable support for Post Thumbnails on posts and pages.
 	 *
-	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
+	 * @link http://codex.mtaandao.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
 	add_theme_support( 'post-thumbnails' );
 
-	// This theme uses wp_nav_menu() in one location.
+	// This theme uses mn_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary Menu', 'mdlwp' ),
-		'drawer' => esc_html__( 'Drawer Menu', 'mdlwp' ),
-		'footer' => esc_html__( 'Footer Menu', 'mdlwp' )
+		'primary' => esc_html__( 'Primary Menu', 'ese' ),
+		'drawer' => esc_html__( 'Drawer Menu', 'ese' ),
+		'footer' => esc_html__( 'Footer Menu', 'ese' )
 	) );
 
 	/*
@@ -61,7 +61,7 @@ function mdlwp_setup() {
 
 	/*
 	 * Enable support for Post Formats.
-	 * See http://codex.wordpress.org/Post_Formats
+	 * See http://codex.mtaandao.org/Post_Formats
 	 */
 	// add_theme_support( 'post-formats', array(
 	// 	'aside',
@@ -71,14 +71,14 @@ function mdlwp_setup() {
 	// 	'link',
 	// ) );
 
-	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'mdlwp_custom_background_args', array(
+	// Set up the Mtaandao core custom background feature.
+	add_theme_support( 'custom-background', apply_filters( 'ese_custom_background_args', array(
 		'default-color' => 'f5f5f5',
 		'default-image' => '',
 	) ) );
 }
-endif; // mdlwp_setup
-add_action( 'after_setup_theme', 'mdlwp_setup' );
+endif; // ese_setup
+add_action( 'after_setup_theme', 'ese_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -87,19 +87,19 @@ add_action( 'after_setup_theme', 'mdlwp_setup' );
  *
  * @global int $content_width
  */
-function mdlwp_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'mdlwp_content_width', 900 );
+function ese_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'ese_content_width', 900 );
 }
-add_action( 'after_setup_theme', 'mdlwp_content_width', 0 );
+add_action( 'after_setup_theme', 'ese_content_width', 0 );
 
 /**
  * Register widget area.
  *
- * @link http://codex.wordpress.org/Function_Reference/register_sidebar
+ * @link http://codex.mtaandao.org/Function_Reference/register_sidebar
  */
-function mdlwp_widgets_init() {
+function ese_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Footer 1', 'mdlwp' ),
+		'name'          => esc_html__( 'Footer 1', 'ese' ),
 		'id'            => 'footer-1',
 		'description'   => '',
 		'before_widget' => '<div id="%1$s" class="mdl-mega-footer__drop-down-section footer-widget %2$s">',
@@ -109,7 +109,7 @@ function mdlwp_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'Footer 2', 'mdlwp' ),
+		'name'          => esc_html__( 'Footer 2', 'ese' ),
 		'id'            => 'footer-2',
 		'description'   => '',
 		'before_widget' => '<div id="%1$s" class="mdl-mega-footer__drop-down-section footer-widget %2$s">',
@@ -119,7 +119,7 @@ function mdlwp_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'Footer 3', 'mdlwp' ),
+		'name'          => esc_html__( 'Footer 3', 'ese' ),
 		'id'            => 'footer-3',
 		'description'   => '',
 		'before_widget' => '<div id="%1$s" class="mdl-mega-footer__drop-down-section footer-widget %2$s">',
@@ -129,7 +129,7 @@ function mdlwp_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'Footer 4', 'mdlwp' ),
+		'name'          => esc_html__( 'Footer 4', 'ese' ),
 		'id'            => 'footer-4',
 		'description'   => '',
 		'before_widget' => '<div id="%1$s" class="mdl-mega-footer__drop-down-section footer-widget %2$s">',
@@ -138,7 +138,7 @@ function mdlwp_widgets_init() {
 		'after_title'   => '</h1>',
 	) );
 }
-add_action( 'widgets_init', 'mdlwp_widgets_init' );
+add_action( 'widgets_init', 'ese_widgets_init' );
 
 /**
  * Implement the Custom Header feature.
@@ -178,7 +178,7 @@ require get_template_directory() . '/inc/customizer.php';
 /**
  * Widget for Footer Links
  */
-require get_template_directory() . '/inc/mdlwp-footer-widget.php';
+require get_template_directory() . '/inc/ese-footer-widget.php';
 
 /**
  * Load Jetpack compatibility file.

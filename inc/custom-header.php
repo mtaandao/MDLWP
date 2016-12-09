@@ -1,7 +1,7 @@
 <?php
 /**
  * Sample implementation of the Custom Header feature
- * http://codex.wordpress.org/Custom_Headers
+ * http://codex.mtaandao.org/Custom_Headers
  *
  * You can add an optional custom header image to header.php like so ...
  *
@@ -11,37 +11,37 @@
 	</a>
 	<?php endif; // End header image check. ?>
  *
- * @package MDLWP
+ * @package Ese
  */
 
 /**
- * Set up the WordPress core custom header feature.
+ * Set up the Mtaandao core custom header feature.
  *
- * @uses mdlwp_header_style()
- * @uses mdlwp_admin_header_style()
- * @uses mdlwp_admin_header_image()
+ * @uses ese_header_style()
+ * @uses ese_admin_header_style()
+ * @uses ese_admin_header_image()
  */
-function mdlwp_custom_header_setup() {
-	add_theme_support( 'custom-header', apply_filters( 'mdlwp_custom_header_args', array(
+function ese_custom_header_setup() {
+	add_theme_support( 'custom-header', apply_filters( 'ese_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => '000000',
 		'width'                  => 1000,
 		'height'                 => 250,
 		'flex-height'            => true,
-		'wp-head-callback'       => 'mdlwp_header_style',
-		'admin-head-callback'    => 'mdlwp_admin_header_style',
-		'admin-preview-callback' => 'mdlwp_admin_header_image',
+		'mn-head-callback'       => 'ese_header_style',
+		'admin-head-callback'    => 'ese_admin_header_style',
+		'admin-preview-callback' => 'ese_admin_header_image',
 	) ) );
 }
-add_action( 'after_setup_theme', 'mdlwp_custom_header_setup' );
+add_action( 'after_setup_theme', 'ese_custom_header_setup' );
 
-if ( ! function_exists( 'mdlwp_header_style' ) ) :
+if ( ! function_exists( 'ese_header_style' ) ) :
 /**
  * Styles the header image and text displayed on the blog
  *
- * @see mdlwp_custom_header_setup().
+ * @see ese_custom_header_setup().
  */
-function mdlwp_header_style() {
+function ese_header_style() {
 	$header_text_color = get_header_textcolor();
 
 	// If no custom options for text are set, let's bail
@@ -74,15 +74,15 @@ function mdlwp_header_style() {
 	</style>
 	<?php
 }
-endif; // mdlwp_header_style
+endif; // ese_header_style
 
-if ( ! function_exists( 'mdlwp_admin_header_style' ) ) :
+if ( ! function_exists( 'ese_admin_header_style' ) ) :
 /**
  * Styles the header image displayed on the Appearance > Header admin panel.
  *
- * @see mdlwp_custom_header_setup().
+ * @see ese_custom_header_setup().
  */
-function mdlwp_admin_header_style() {
+function ese_admin_header_style() {
 ?>
 	<style type="text/css">
 		.appearance_page_custom-header #headimg {
@@ -102,15 +102,15 @@ function mdlwp_admin_header_style() {
 	</style>
 <?php
 }
-endif; // mdlwp_admin_header_style
+endif; // ese_admin_header_style
 
-if ( ! function_exists( 'mdlwp_admin_header_image' ) ) :
+if ( ! function_exists( 'ese_admin_header_image' ) ) :
 /**
  * Custom header image markup displayed on the Appearance > Header admin panel.
  *
- * @see mdlwp_custom_header_setup().
+ * @see ese_custom_header_setup().
  */
-function mdlwp_admin_header_image() {
+function ese_admin_header_image() {
 ?>
 	<div id="headimg">
 		<h1 class="displaying-header-text">
@@ -123,4 +123,4 @@ function mdlwp_admin_header_image() {
 	</div>
 <?php
 }
-endif; // mdlwp_admin_header_image
+endif; // ese_admin_header_image

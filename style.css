@@ -1,20 +1,20 @@
 /*!
-Theme Name: MDLWP
-Theme URI: https://github.com/braginteractive/MDLWP
-Author: Brad Williams
-Author URI: http://braginteractive.com
-Description: Material Design Lite WordPress Theme
+Theme Name: Ese
+Theme URI: https://github.com/mtaandao/ese
+Author: Mtaandao
+Author URI: http://mtaandao.co.ke
+Description: Material Design Lite Mtaandao Theme
 Version: 1.2.3
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: mdlwp
-GitHub Theme URI: https://github.com/braginteractive/MDLWP
+Text Domain: ese
+GitHub Theme URI: https://github.com/mtaandao/ese
 Tags:
 
-This theme, like WordPress, is licensed under the GPL.
+This theme, like Mtaandao, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 
-MDLWP is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
+Ese is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 Normalizing styles have been helped along thanks to the fine work of
@@ -53,7 +53,7 @@ textarea {
 /*--------------------------------------------------------------
 ## Main Navigation
 --------------------------------------------------------------*/
-.mdlwp-navigation-container {
+.ese-navigation-container {
   direction: rtl;
   -webkit-box-ordinal-group: 2;
       -ms-flex-order: 1;
@@ -62,22 +62,22 @@ textarea {
   -webkit-transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
           transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), width 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
 
-.mdlwp-search-box {
+.ese-search-box {
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
           order: 2;
   margin-left: 16px;
   margin-right: 16px; }
-  .mdlwp-search-box .mdl-textfield__input {
+  .ese-search-box .mdl-textfield__input {
     border-bottom: 1px solid #fff; }
-  .mdlwp-search-box.is-focused ~ .mdlwp-navigation-container {
+  .ese-search-box.is-focused ~ .ese-navigation-container {
     opacity: 0;
     width: 100px; }
 
 /*--------------------------------------------------------------
 ## Posts Navigation
 --------------------------------------------------------------*/
-.mdlwp-nav {
+.ese-nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -93,15 +93,15 @@ textarea {
           align-items: center;
   color: #757575;
   font-weight: 500; }
-  .mdlwp-nav > .mdlwp-nav__button {
+  .ese-nav > .ese-nav__button {
     color: #757575;
     text-decoration: none; }
-  .mdlwp-nav .mdl-button {
+  .ese-nav .mdl-button {
     color: rgba(0, 0, 0, 0.54);
     background-color: white; }
-  .mdlwp-nav > .mdlwp-nav__button:first-child .mdl-button {
+  .ese-nav > .ese-nav__button:first-child .mdl-button {
     margin-right: 16px; }
-  .mdlwp-nav > .mdlwp-nav__button:last-child .mdl-button {
+  .ese-nav > .ese-nav__button:last-child .mdl-button {
     margin-left: 16px; }
 
 /*--------------------------------------------------------------
@@ -125,10 +125,10 @@ textarea {
 /*--------------------------------------------------------------
 # Widths
 --------------------------------------------------------------*/
-.mdlwp-900 {
+.ese-900 {
   max-width: 900px; }
 
-.mdlwp-1600 {
+.ese-1600 {
   max-width: 1600px; }
 
 /*--------------------------------------------------------------
@@ -299,7 +299,7 @@ ol.comment-list {
     color: #616161;
     margin-bottom: 15px; }
 
-.page-template-page-ribbon .mdlwp-page-ribbon {
+.page-template-page-ribbon .ese-page-ribbon {
   margin-top: -35vh;
   -ms-flex-negative: 0;
       flex-shrink: 0;
@@ -341,9 +341,9 @@ body {
 /*--------------------------------------------------------------
 # Media
 --------------------------------------------------------------*/
-.page-content .wp-smiley,
-.entry-content .wp-smiley,
-.comment-content .wp-smiley {
+.page-content .mn-smiley,
+.entry-content .mn-smiley,
+.comment-content .mn-smiley {
   border: none;
   margin-bottom: 0;
   margin-top: 0;
@@ -358,17 +358,17 @@ object {
 /*--------------------------------------------------------------
 ## Captions
 --------------------------------------------------------------*/
-.wp-caption {
+.mn-caption {
   margin-bottom: 1.5em;
   max-width: 100%; }
-  .wp-caption img[class*="wp-image-"] {
+  .mn-caption img[class*="mn-image-"] {
     display: block;
     margin-left: auto;
     margin-right: auto; }
-  .wp-caption .wp-caption-text {
+  .mn-caption .mn-caption-text {
     margin: 0.8075em 0; }
 
-.wp-caption-text {
+.mn-caption-text {
   text-align: center; }
 
 /*--------------------------------------------------------------

@@ -2,22 +2,22 @@
 /**
  * The template for displaying all single posts.
  *
- * @package MDLWP
+ * @package Ese
  */
 
 get_header(); ?>
 
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main mdl-grid mdlwp-900" role="main">
+		<main id="main" class="site-main mdl-grid ese-900" role="main">
 
-		<?php do_action( 'mdlwp_before_content' ); ?>
+		<?php do_action( 'ese_before_content' ); ?>
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
 			<?php get_template_part( 'template-parts/content', 'single' ); ?>
 
-			<?php do_action( 'mdlwp_before_comments' ); ?>
+			<?php do_action( 'ese_before_comments' ); ?>
 
 			<?php
 				// If comments are open or we have at least one comment, load up the comment template.
@@ -26,17 +26,17 @@ get_header(); ?>
 				endif;
 			?>
 
-			<?php do_action( 'mdlwp_after_comments' ); ?>
+			<?php do_action( 'ese_after_comments' ); ?>
 
-			<?php do_action( 'mdlwp_before_pagination' ); ?>
+			<?php do_action( 'ese_before_pagination' ); ?>
 
-			<?php mdlwp_post_navigation(); ?>
+			<?php ese_post_navigation(); ?>
 
-			<?php do_action( 'mdlwp_after_pagination' ); ?>
+			<?php do_action( 'ese_after_pagination' ); ?>
 
 		<?php endwhile; // End of the loop. ?>
 
-		<?php do_action( 'mdlwp_after_content' ); ?>
+		<?php do_action( 'ese_after_content' ); ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

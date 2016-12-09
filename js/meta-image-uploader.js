@@ -19,7 +19,7 @@ jQuery(document).ready(function($){
 		}
 
 		// Sets up the media library frame
-		meta_image_frame = wp.media.frames.meta_image_frame = wp.media({
+		meta_image_frame = mn.media.frames.meta_image_frame = mn.media({
 			title: meta_image.title,
 			button: { text:  meta_image.button },
 			library: { type: 'image' }

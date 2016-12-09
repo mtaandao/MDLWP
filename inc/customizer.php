@@ -1,23 +1,23 @@
 <?php
 /**
- * MDLWP Theme Customizer
+ * Ese Theme Customizer
  *
- * @package MDLWP
+ * @package Ese
  */
 
 /**
  * Add postMessage support for site title and description for the Theme Customizer.
  *
- * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+ * @param MN_Customize_Manager $mn_customize Theme Customizer object.
  */
-function mdlwp_customize_register( $wp_customize ) {
-	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
-	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
-	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+function ese_customize_register( $mn_customize ) {
+	$mn_customize->get_setting( 'blogname' )->transport         = 'postMessage';
+	$mn_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
+	$mn_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
-	$wp_customize->remove_control('blogdescription');
-	$wp_customize->remove_control("header_textcolor");
-	$wp_customize->remove_control("header_image");
+	$mn_customize->remove_control('blogdescription');
+	$mn_customize->remove_control("header_textcolor");
+	$mn_customize->remove_control("header_image");
 
 	/**
 	 *
@@ -27,10 +27,10 @@ function mdlwp_customize_register( $wp_customize ) {
 	 * 
 	 * Uses a custom radio-image control to configure the Blog Layout setting.
 	 * 
-	 * @uses $wp_customize->add_setting() https://developer.wordpress.org/reference/classes/wp_customize_manager/add_setting/
-	 * @link $wp_customize->add_setting() https://codex.wordpress.org/Class_Reference/WP_Customize_Manager/add_setting
+	 * @uses $mn_customize->add_setting() https://developer.mtaandao.org/reference/classes/mn_customize_manager/add_setting/
+	 * @link $mn_customize->add_setting() https://codex.mtaandao.org/Class_Reference/MN_Customize_Manager/add_setting
 	 */
-	$wp_customize->add_setting(
+	$mn_customize->add_setting(
 		// $id
 		'primary_color',
 		// $args
@@ -48,10 +48,10 @@ function mdlwp_customize_register( $wp_customize ) {
 	 * 
 	 * Uses a custom radio-image control to configure the Blog Layout setting.
 	 * 
-	 * @uses $wp_customize->add_setting() https://developer.wordpress.org/reference/classes/wp_customize_manager/add_setting/
-	 * @link $wp_customize->add_setting() https://codex.wordpress.org/Class_Reference/WP_Customize_Manager/add_setting
+	 * @uses $mn_customize->add_setting() https://developer.mtaandao.org/reference/classes/mn_customize_manager/add_setting/
+	 * @link $mn_customize->add_setting() https://codex.mtaandao.org/Class_Reference/MN_Customize_Manager/add_setting
 	 */
-	$wp_customize->add_setting(
+	$mn_customize->add_setting(
 		// $id
 		'secondary_color',
 		// $args
@@ -62,7 +62,7 @@ function mdlwp_customize_register( $wp_customize ) {
 	);
 
 
-	class MDLWP_Custom_Radio_Image_Control extends WP_Customize_Control {
+	class Ese_Custom_Radio_Image_Control extends MN_Customize_Control {
 		/**
 		 * Declare the control type.
 		 *
@@ -82,7 +82,7 @@ function mdlwp_customize_register( $wp_customize ) {
 		 * @access public
 		 */
 		public function enqueue() {
-			wp_enqueue_script( 'jquery-ui-button' );
+			mn_enqueue_script( 'jquery-ui-button' );
 		}
 		
 		/**
@@ -98,7 +98,7 @@ function mdlwp_customize_register( $wp_customize ) {
 			<span class="customize-control-title">
 				<?php echo esc_attr( $this->label ); ?>
 				<?php if ( ! empty( $this->description ) ) : ?>
-					<span class="description customize-control-description"><?php echo wp_kses_post( $this->description ); ?></span>
+					<span class="description customize-control-description"><?php echo mn_kses_post( $this->description ); ?></span>
 				<?php endif; ?>
 			</span>
 			<div id="input_<?php echo $this->id; ?>" class="image">
@@ -123,16 +123,16 @@ function mdlwp_customize_register( $wp_customize ) {
 	 * - Setting: Primary Color
 	 * - Sanitization: select
 	 * 
-	 * Register "MDLWP_Custom_Radio_Image_Control" to be  used to configure
+	 * Register "Ese_Custom_Radio_Image_Control" to be  used to configure
 	 * the Blog Posts Index Layout setting.
 	 * 
-	 * @uses $wp_customize->add_control() https://developer.wordpress.org/reference/classes/wp_customize_manager/add_control/
-	 * @link $wp_customize->add_control() https://codex.wordpress.org/Class_Reference/WP_Customize_Manager/add_control
+	 * @uses $mn_customize->add_control() https://developer.mtaandao.org/reference/classes/mn_customize_manager/add_control/
+	 * @link $mn_customize->add_control() https://codex.mtaandao.org/Class_Reference/MN_Customize_Manager/add_control
 	 */
-	$wp_customize->add_control(
-		new MDLWP_Custom_Radio_Image_Control( 
-			// $wp_customize object
-			$wp_customize,
+	$mn_customize->add_control(
+		new Ese_Custom_Radio_Image_Control( 
+			// $mn_customize object
+			$mn_customize,
 			// $id
 			'primary_color',
 			// $args
@@ -174,16 +174,16 @@ function mdlwp_customize_register( $wp_customize ) {
 	 * - Setting: Secondary Color
 	 * - Sanitization: select
 	 * 
-	 * Register "MDLWP_Custom_Radio_Image_Control" to be  used to configure
+	 * Register "Ese_Custom_Radio_Image_Control" to be  used to configure
 	 * the Blog Posts Index Layout setting.
 	 * 
-	 * @uses $wp_customize->add_control() https://developer.wordpress.org/reference/classes/wp_customize_manager/add_control/
-	 * @link $wp_customize->add_control() https://codex.wordpress.org/Class_Reference/WP_Customize_Manager/add_control
+	 * @uses $mn_customize->add_control() https://developer.mtaandao.org/reference/classes/mn_customize_manager/add_control/
+	 * @link $mn_customize->add_control() https://codex.mtaandao.org/Class_Reference/MN_Customize_Manager/add_control
 	 */
-	$wp_customize->add_control(
-		new MDLWP_Custom_Radio_Image_Control( 
-			// $wp_customize object
-			$wp_customize,
+	$mn_customize->add_control(
+		new Ese_Custom_Radio_Image_Control( 
+			// $mn_customize object
+			$mn_customize,
 			// $id
 			'secondary_color',
 			// $args
@@ -219,7 +219,7 @@ function mdlwp_customize_register( $wp_customize ) {
 	);
 }
 
-add_action( 'customize_register', 'mdlwp_customize_register' );
+add_action( 'customize_register', 'ese_customize_register' );
 
 /**
  * Add CSS for custom controls
@@ -231,7 +231,7 @@ add_action( 'customize_register', 'mdlwp_customize_register' );
  *
  * @link https://github.com/reduxframework/kirki/
  */
-function MDLWP_customizer_custom_control_css() { 
+function Ese_customizer_custom_control_css() { 
 	?>
 	<style>
 	.customize-control-radio-image .image.ui-buttonset input[type=radio] {
@@ -279,15 +279,15 @@ function MDLWP_customizer_custom_control_css() {
 	</style>
 	<?php
 }
-add_action( 'customize_controls_print_styles', 'MDLWP_customizer_custom_control_css' );
+add_action( 'customize_controls_print_styles', 'Ese_customizer_custom_control_css' );
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
-function mdlwp_customize_preview_js() {
-	wp_enqueue_script( 'mdlwp_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20130508', true );
+function ese_customize_preview_js() {
+	mn_enqueue_script( 'ese_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20130508', true );
 }
-add_action( 'customize_preview_init', 'mdlwp_customize_preview_js' );
+add_action( 'customize_preview_init', 'ese_customize_preview_js' );
 
 /**
  * Customizer: Sanitization Callbacks
@@ -295,7 +295,7 @@ add_action( 'customize_preview_init', 'mdlwp_customize_preview_js' );
  * This file demonstrates how to define sanitization callback functions for various data types.
  * 
  * @package   code-examples
- * @copyright Copyright (c) 2015, WordPress Theme Review Team
+ * @copyright Copyright (c) 2015, Mtaandao Theme Review Team
  * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License, v2 (or newer)
  */
 
@@ -308,7 +308,7 @@ add_action( 'customize_preview_init', 'mdlwp_customize_preview_js' );
  * @param bool $checked Whether the checkbox is checked.
  * @return bool Whether the checkbox is checked.
  */
-function mdlwp_sanitize_checkbox( $checked ) {
+function ese_sanitize_checkbox( $checked ) {
 	// Boolean check.
 	return ( ( isset( $checked ) && true == $checked ) ? true : false );
 }
@@ -322,16 +322,16 @@ function mdlwp_sanitize_checkbox( $checked ) {
  * Sanitization callback for 'css' type textarea inputs. This callback sanitizes
  * `$css` for valid CSS.
  * 
- * NOTE: wp_strip_all_tags() can be passed directly as `$wp_customize->add_setting()`
+ * NOTE: mn_strip_all_tags() can be passed directly as `$mn_customize->add_setting()`
  * 'sanitize_callback'. It is wrapped in a callback here merely for example purposes.
  * 
- * @see wp_strip_all_tags() https://developer.wordpress.org/reference/functions/wp_strip_all_tags/
+ * @see mn_strip_all_tags() https://developer.mtaandao.org/reference/functions/mn_strip_all_tags/
  *
  * @param string $css CSS to sanitize.
  * @return string Sanitized CSS.
  */
-function mdlwp_sanitize_css( $css ) {
-	return wp_strip_all_tags( $css );
+function ese_sanitize_css( $css ) {
+	return mn_strip_all_tags( $css );
 }
 
 /**
@@ -343,14 +343,14 @@ function mdlwp_sanitize_css( $css ) {
  * Sanitization callback for 'dropdown-pages' type controls. This callback sanitizes `$page_id`
  * as an absolute integer, and then validates that $input is the ID of a published page.
  * 
- * @see absint() https://developer.wordpress.org/reference/functions/absint/
- * @see get_post_status() https://developer.wordpress.org/reference/functions/get_post_status/
+ * @see absint() https://developer.mtaandao.org/reference/functions/absint/
+ * @see get_post_status() https://developer.mtaandao.org/reference/functions/get_post_status/
  *
  * @param int                  $page    Page ID.
- * @param WP_Customize_Setting $setting Setting instance.
+ * @param MN_Customize_Setting $setting Setting instance.
  * @return int|string Page ID if the page is published; otherwise, the setting default.
  */
-function mdlwp_sanitize_dropdown_pages( $page_id, $setting ) {
+function ese_sanitize_dropdown_pages( $page_id, $setting ) {
 	// Ensure $input is an absolute integer.
 	$page_id = absint( $page_id );
 	
@@ -367,14 +367,14 @@ function mdlwp_sanitize_dropdown_pages( $page_id, $setting ) {
  * Sanitization callback for 'email' type text controls. This callback sanitizes `$email`
  * as a valid email address.
  * 
- * @see sanitize_email() https://developer.wordpress.org/reference/functions/sanitize_key/
- * @link sanitize_email() https://codex.wordpress.org/Function_Reference/sanitize_email
+ * @see sanitize_email() https://developer.mtaandao.org/reference/functions/sanitize_key/
+ * @link sanitize_email() https://codex.mtaandao.org/Function_Reference/sanitize_email
  *
  * @param string               $email   Email address to sanitize.
- * @param WP_Customize_Setting $setting Setting instance.
+ * @param MN_Customize_Setting $setting Setting instance.
  * @return string The sanitized email if not null; otherwise, the setting default.
  */
-function mdlwp_sanitize_email( $email, $setting ) {
+function ese_sanitize_email( $email, $setting ) {
 	// Sanitize $input as a hex value without the hash prefix.
 	$email = sanitize_email( $email );
 	
@@ -386,19 +386,19 @@ function mdlwp_sanitize_email( $email, $setting ) {
  * HEX Color sanitization callback example.
  *
  * - Sanitization: hex_color
- * - Control: text, WP_Customize_Color_Control
+ * - Control: text, MN_Customize_Color_Control
  * 
  * Note: sanitize_hex_color_no_hash() can also be used here, depending on whether
  * or not the hash prefix should be stored/retrieved with the hex color value.
  * 
- * @see sanitize_hex_color() https://developer.wordpress.org/reference/functions/sanitize_hex_color/
- * @link sanitize_hex_color_no_hash() https://developer.wordpress.org/reference/functions/sanitize_hex_color_no_hash/
+ * @see sanitize_hex_color() https://developer.mtaandao.org/reference/functions/sanitize_hex_color/
+ * @link sanitize_hex_color_no_hash() https://developer.mtaandao.org/reference/functions/sanitize_hex_color_no_hash/
  *
  * @param string               $hex_color HEX color to sanitize.
- * @param WP_Customize_Setting $setting   Setting instance.
+ * @param MN_Customize_Setting $setting   Setting instance.
  * @return string The sanitized hex color if not null; otherwise, the setting default.
  */
-function mdlwp_sanitize_hex_color( $hex_color, $setting ) {
+function ese_sanitize_hex_color( $hex_color, $setting ) {
 	// Sanitize $input as a hex value without the hash prefix.
 	$hex_color = sanitize_hex_color( $hex_color );
 	
@@ -415,16 +415,16 @@ function mdlwp_sanitize_hex_color( $hex_color, $setting ) {
  * Sanitization callback for 'html' type text inputs. This callback sanitizes `$html`
  * for HTML allowable in posts.
  * 
- * NOTE: wp_filter_post_kses() can be passed directly as `$wp_customize->add_setting()`
+ * NOTE: mn_filter_post_kses() can be passed directly as `$mn_customize->add_setting()`
  * 'sanitize_callback'. It is wrapped in a callback here merely for example purposes.
  * 
- * @see wp_filter_post_kses() https://developer.wordpress.org/reference/functions/wp_filter_post_kses/
+ * @see mn_filter_post_kses() https://developer.mtaandao.org/reference/functions/mn_filter_post_kses/
  *
  * @param string $html HTML to sanitize.
  * @return string Sanitized HTML.
  */
-function mdlwp_sanitize_html( $html ) {
-	return wp_filter_post_kses( $html );
+function ese_sanitize_html( $html ) {
+	return mn_filter_post_kses( $html );
 }
 
 /**
@@ -434,20 +434,20 @@ function mdlwp_sanitize_html( $html ) {
  * send back the filename, otherwise, return the setting default.
  *
  * - Sanitization: image file extension
- * - Control: text, WP_Customize_Image_Control
+ * - Control: text, MN_Customize_Image_Control
  * 
- * @see wp_check_filetype() https://developer.wordpress.org/reference/functions/wp_check_filetype/
+ * @see mn_check_filetype() https://developer.mtaandao.org/reference/functions/mn_check_filetype/
  *
  * @param string               $image   Image filename.
- * @param WP_Customize_Setting $setting Setting instance.
+ * @param MN_Customize_Setting $setting Setting instance.
  * @return string The image filename if the extension is allowed; otherwise, the setting default.
  */
-function mdlwp_sanitize_image( $image, $setting ) {
+function ese_sanitize_image( $image, $setting ) {
 
 	/*
 	 * Array of valid image file types.
 	 *
-	 * The array includes image mime types that are included in wp_get_mime_types()
+	 * The array includes image mime types that are included in mn_get_mime_types()
 	 */
     $mimes = array(
         'jpg|jpeg|jpe' => 'image/jpeg',
@@ -459,7 +459,7 @@ function mdlwp_sanitize_image( $image, $setting ) {
     );
 
 	// Return an array with file extension and mime_type.
-    $file = wp_check_filetype( $image, $mimes );
+    $file = mn_check_filetype( $image, $mimes );
 
 	// If $image has a valid mime_type, return it; otherwise, return the default.
     return ( $file['ext'] ? $image : $setting->default );
@@ -474,16 +474,16 @@ function mdlwp_sanitize_image( $image, $setting ) {
  * Sanitization callback for 'nohtml' type text inputs. This callback sanitizes `$nohtml`
  * to remove all HTML.
  * 
- * NOTE: wp_filter_nohtml_kses() can be passed directly as `$wp_customize->add_setting()`
+ * NOTE: mn_filter_nohtml_kses() can be passed directly as `$mn_customize->add_setting()`
  * 'sanitize_callback'. It is wrapped in a callback here merely for example purposes.
  * 
- * @see wp_filter_nohtml_kses() https://developer.wordpress.org/reference/functions/wp_filter_nohtml_kses/
+ * @see mn_filter_nohtml_kses() https://developer.mtaandao.org/reference/functions/mn_filter_nohtml_kses/
  *
  * @param string $nohtml The no-HTML content to sanitize.
  * @return string Sanitized no-HTML content.
  */
-function mdlwp_sanitize_nohtml( $nohtml ) {
-	return wp_filter_nohtml_kses( $nohtml );
+function ese_sanitize_nohtml( $nohtml ) {
+	return mn_filter_nohtml_kses( $nohtml );
 }
 
 /**
@@ -495,16 +495,16 @@ function mdlwp_sanitize_nohtml( $nohtml ) {
  * Sanitization callback for 'number' type text inputs. This callback sanitizes `$number`
  * as an absolute integer (whole number, zero or greater).
  * 
- * NOTE: absint() can be passed directly as `$wp_customize->add_setting()` 'sanitize_callback'.
+ * NOTE: absint() can be passed directly as `$mn_customize->add_setting()` 'sanitize_callback'.
  * It is wrapped in a callback here merely for example purposes.
  * 
- * @see absint() https://developer.wordpress.org/reference/functions/absint/
+ * @see absint() https://developer.mtaandao.org/reference/functions/absint/
  *
  * @param int                  $number  Number to sanitize.
- * @param WP_Customize_Setting $setting Setting instance.
+ * @param MN_Customize_Setting $setting Setting instance.
  * @return int Sanitized number; otherwise, the setting default.
  */
-function mdlwp_sanitize_number_absint( $number, $setting ) {
+function ese_sanitize_number_absint( $number, $setting ) {
 	// Ensure $number is an absolute integer (whole number, zero or greater).
 	$number = absint( $number );
 	
@@ -521,14 +521,14 @@ function mdlwp_sanitize_number_absint( $number, $setting ) {
  * Sanitization callback for 'number' or 'tel' type text inputs. This callback sanitizes
  * `$number` as an absolute integer within a defined min-max range.
  * 
- * @see absint() https://developer.wordpress.org/reference/functions/absint/
+ * @see absint() https://developer.mtaandao.org/reference/functions/absint/
  *
  * @param int                  $number  Number to check within the numeric range defined by the setting.
- * @param WP_Customize_Setting $setting Setting instance.
+ * @param MN_Customize_Setting $setting Setting instance.
  * @return int|string The number, if it is zero or greater and falls within the defined range; otherwise,
  *                    the setting default.
  */
-function mdlwp_sanitize_number_range( $number, $setting ) {
+function ese_sanitize_number_range( $number, $setting ) {
 	
 	// Ensure input is an absolute integer.
 	$number = absint( $number );
@@ -558,14 +558,14 @@ function mdlwp_sanitize_number_range( $number, $setting ) {
  * Sanitization callback for 'select' and 'radio' type controls. This callback sanitizes `$input`
  * as a slug, and then validates `$input` against the choices defined for the control.
  * 
- * @see sanitize_key()               https://developer.wordpress.org/reference/functions/sanitize_key/
- * @see $wp_customize->get_control() https://developer.wordpress.org/reference/classes/wp_customize_manager/get_control/
+ * @see sanitize_key()               https://developer.mtaandao.org/reference/functions/sanitize_key/
+ * @see $mn_customize->get_control() https://developer.mtaandao.org/reference/classes/mn_customize_manager/get_control/
  *
  * @param string               $input   Slug to sanitize.
- * @param WP_Customize_Setting $setting Setting instance.
+ * @param MN_Customize_Setting $setting Setting instance.
  * @return string Sanitized slug if it is a valid choice; otherwise, the setting default.
  */
-function mdlwp_sanitize_select( $input, $setting ) {
+function ese_sanitize_select( $input, $setting ) {
 	
 	// Ensure input is a slug.
 	$input = sanitize_key( $input );
@@ -585,15 +585,15 @@ function mdlwp_sanitize_select( $input, $setting ) {
  * 
  * Sanitization callback for 'url' type text inputs. This callback sanitizes `$url` as a valid URL.
  * 
- * NOTE: esc_url_raw() can be passed directly as `$wp_customize->add_setting()` 'sanitize_callback'.
+ * NOTE: esc_url_raw() can be passed directly as `$mn_customize->add_setting()` 'sanitize_callback'.
  * It is wrapped in a callback here merely for example purposes.
  * 
- * @see esc_url_raw() https://developer.wordpress.org/reference/functions/esc_url_raw/
+ * @see esc_url_raw() https://developer.mtaandao.org/reference/functions/esc_url_raw/
  *
  * @param string $url URL to sanitize.
  * @return string Sanitized URL.
  */
-function mdlwp_sanitize_url( $url ) {
+function ese_sanitize_url( $url ) {
 	return esc_url_raw( $url );
 }
 

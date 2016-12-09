@@ -4,7 +4,7 @@
  * Template Name: Portfolio
  *
  *
- * @package MDLWP
+ * @package Ese
  */
 
 get_header(); ?>
@@ -15,7 +15,7 @@ get_header(); ?>
 		    $terms = get_terms("portfolio_category");
 		    $count = count($terms);
 		    echo '<div class="mdl-tabs__tab-bar">';
-		    echo '<a class="mdl-tabs__tab is-active filter categories-item" data-filter="all" href="#all">'. __( "All", "mdlwp" ) .'</a>';
+		    echo '<a class="mdl-tabs__tab is-active filter categories-item" data-filter="all" href="#all">'. __( "All", "ese" ) .'</a>';
 		        if ( $count > 0 )
 		        {   
 		            foreach ( $terms as $term ) {
@@ -29,9 +29,9 @@ get_header(); ?>
 	?>
 
 	<div id="primary" class="portfolio">
-		<main id="main" class="site-main mdl-grid mdlwp-1200" role="main">
+		<main id="main" class="site-main mdl-grid ese-1200" role="main">
 
-			<?php do_action( 'mdlwp_before_content' ); ?>
+			<?php do_action( 'ese_before_content' ); ?>
 
 			<?php $columns = get_theme_mod( 'portfolio_layout', 'three-column');
 		     if($columns == 'three-column') {
@@ -49,7 +49,7 @@ get_header(); ?>
 			<?php
 			    $terms = get_the_terms( $post->ID, 'portfolio_category' );
 			                         
-			    if ( $terms && ! is_wp_error( $terms ) ) : 
+			    if ( $terms && ! is_mn_error( $terms ) ) : 
 			        $links = array();
 
 			        foreach ( $terms as $term ) 
@@ -87,7 +87,7 @@ get_header(); ?>
 
 			<?php endwhile; // End of the loop. ?>
 
-			<?php do_action( 'mdlwp_after_content' ); ?>
+			<?php do_action( 'ese_after_content' ); ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

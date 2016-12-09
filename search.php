@@ -2,21 +2,21 @@
 /**
  * The template for displaying search results pages.
  *
- * @package MDLWP
+ * @package Ese
  */
 
 get_header(); ?>
 
 
 	<section id="primary" class="mdl-grid content-area">
-		<main id="main" class="site-main mdl-grid mdlwp-900" role="main">
+		<main id="main" class="site-main mdl-grid ese-900" role="main">
 
-		<?php do_action( 'mdlwp_before_content' ); ?>
+		<?php do_action( 'ese_before_content' ); ?>
 
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header mdl-cell mdl-cell--12-col">
-				<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'mdlwp' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+				<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'ese' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 			</header><!-- .page-header -->
 
 			<?php /* Start the Loop */ ?>
@@ -33,11 +33,11 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-			<?php do_action( 'mdlwp_before_pagination' ); ?>
+			<?php do_action( 'ese_before_pagination' ); ?>
 
 			<?php the_posts_navigation(); ?>
 
-			<?php do_action( 'mdlwp_after_pagination' ); ?>
+			<?php do_action( 'ese_after_pagination' ); ?>
 
 		<?php else : ?>
 
@@ -45,7 +45,7 @@ get_header(); ?>
 
 		<?php endif; ?>
 
-		<?php do_action( 'mdlwp_after_content' ); ?>
+		<?php do_action( 'ese_after_content' ); ?>
 
 		</main><!-- #main -->
 	</section><!-- #primary -->

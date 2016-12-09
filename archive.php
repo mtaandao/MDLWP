@@ -2,16 +2,16 @@
 /**
  * The template for displaying archive pages.
  *
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ * Learn more: http://codex.mtaandao.org/Template_Hierarchy
  *
- * @package MDLWP
+ * @package Ese
  */
 
 get_header(); ?>
 
 		
 	<div id="primary" class="mdl-grid content-area">
-		<main id="main" class="site-main mdl-grid mdlwp-900" role="main">
+		<main id="main" class="site-main mdl-grid ese-900" role="main">
 
 		<?php if ( have_posts() ) : ?>
 
